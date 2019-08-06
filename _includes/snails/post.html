@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
     <h3 class="post-title" itemprop="name headline">{{ page.title | escape }}</h3>
@@ -14,6 +15,11 @@ layout: default
       {% endif %}</p>
   </header>
 
-  <div class="post-content" >
+  <div class="post-content" itemprop="articleBody">
     {{ content }}
   </div>
+
+  {% if site.disqus.shortname %}
+    {% include disqus_comments.html %}
+  {% endif %}
+</article>
